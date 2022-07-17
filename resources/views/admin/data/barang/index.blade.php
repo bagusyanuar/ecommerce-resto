@@ -31,6 +31,7 @@
                     <th width="5%" class="text-center">#</th>
                     <th>Nama</th>
                     <th>Kategori</th>
+                    <th width="12%">Qty</th>
                     <th width="12%">Harga (Rp.)</th>
                     <th>Deskripsi</th>
                     <th>Gambar</th>
@@ -43,6 +44,7 @@
                         <td width="5%" class="text-center">{{ $loop->index + 1 }}</td>
                         <td>{{ $v->nama }}</td>
                         <td>{{ $v->category !== null ? $v->category->nama : '-' }}</td>
+                        <td>{{ $v->qty }}</td>
                         <td>{{ number_format($v->harga, 0, ',', '.') }}</td>
                         <td>{{ $v->deskripsi }}</td>
                         <td>

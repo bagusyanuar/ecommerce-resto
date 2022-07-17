@@ -56,6 +56,11 @@
                                            name="harga" value="0">
                                 </div>
                                 <div class="w-100 mb-1">
+                                    <label for="qty" class="form-label">Qty</label>
+                                    <input type="number" class="form-control" id="qty" placeholder="Qty Barang"
+                                           name="qty" value="0">
+                                </div>
+                                <div class="w-100 mb-1">
                                     <label for="deskripsi" class="form-label">Deskripsi barang</label>
                                     <textarea type="text" class="form-control" id="deskripsi" placeholder="Deskripsi Barang"
                                               name="deskripsi" rows="3"></textarea>

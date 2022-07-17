@@ -33,6 +33,7 @@ class BarangController extends CustomController
             $data = [
                 'nama' => $this->postField('nama'),
                 'category_id' => $this->postField('kategori') === '' ? null : $this->postField('kategori'),
+                'qty' => $this->postField('qty'),
                 'harga' => $this->postField('harga'),
                 'deskripsi' => $this->postField('deskripsi'),
             ];
@@ -65,6 +66,7 @@ class BarangController extends CustomController
                 'nama' => $this->postField('nama'),
                 'category_id' => $this->postField('kategori') === '' ? null : $this->postField('kategori'),
                 'harga' => $this->postField('harga'),
+                'qty' => $this->postField('qty'),
                 'deskripsi' => $this->postField('deskripsi'),
             ];
             $nama_gambar = $this->generateImageName('gambar');

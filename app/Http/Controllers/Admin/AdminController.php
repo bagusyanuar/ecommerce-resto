@@ -17,7 +17,7 @@ class AdminController extends CustomController
 
     public function index()
     {
-        $data = User::where('role', '=', 'admin')->get();
+        $data = User::where('role', '!=', 'member')->get();
         return view('admin.pengguna.admin.index')->with(['data' => $data]);
     }
 
@@ -32,7 +32,7 @@ class AdminController extends CustomController
             $data = [
                 'username' => $this->postField('username'),
                 'password' => Hash::make($this->postField('password')),
-                'role' => 'admin',
+                'role' => $this->postField('role'),
             ];
             User::create($data);
             return redirect()->back()->with(['success' => 'Berhasil Menambahkan Data...']);
@@ -55,9 +55,8 @@ class AdminController extends CustomController
 
             $data = [
                 'username' => $this->postField('username'),
-//                'role' => $this->postField('role'),
+                'role' => $this->postField('role'),
             ];
-
             if ($this->postField('password') !== '') {
                 $data['password'] = Hash::make($this->postField('password'));
             }

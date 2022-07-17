@@ -17,13 +17,13 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Kota</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Wilayah Delivery Order</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="/kota">Kota</a>
+                    <a href="/wilayah">Wilayah Delivery Order</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Tambah
                 </li>
@@ -34,11 +34,11 @@
                 <div class="col-lg-5 col-md-6 col-sm-11">
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="/kota/create">
+                            <form method="post" action="/wilayah/create">
                                 @csrf
                                 <div class="w-100 mb-1">
-                                    <label for="nama" class="form-label">Nama Kota</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama Kota"
+                                    <label for="nama" class="form-label">Nama Wilayah</label>
+                                    <input type="text" class="form-control" id="nama" placeholder="Nama Wilayah"
                                            name="nama">
                                 </div>
                                 <div class="w-100 mb-2 mt-3 text-right">

@@ -29,7 +29,7 @@
                 <thead>
                 <tr>
                     <th width="5%" class="text-center">#</th>
-                    <th>Kota</th>
+                    <th>Wilayah</th>
                     <th>Total</th>
                     <th width="12%" class="text-center">Action</th>
                 </tr>

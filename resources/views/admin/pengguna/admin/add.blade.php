@@ -46,12 +46,13 @@
                                     <input type="password" class="form-control" id="password" placeholder="Password"
                                            name="password">
                                 </div>
-{{--                                <div class="form-group w-100 mb-1">--}}
-{{--                                    <label for="role">Hak Akses</label>--}}
-{{--                                    <select class="form-control" id="role" name="role">--}}
-{{--                                        <option value="admin">Admin</option>--}}
-{{--                                    </select>--}}
-{{--                                </div>--}}
+                                <div class="form-group w-100 mb-1">
+                                    <label for="role">Hak Akses</label>
+                                    <select class="form-control" id="role" name="role">
+                                        <option value="admin">Admin</option>
+                                        <option value="karyawan">Karyawan</option>
+                                    </select>
+                                </div>
                                 <div class="w-100 mb-2 mt-3 text-right">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>

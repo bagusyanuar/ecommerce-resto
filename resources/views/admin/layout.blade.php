@@ -26,7 +26,7 @@
                     class="fa fa-bars"></i></a>
         </li>
     </ul>
-    <div class="font-weight-bold">Sistem Penjualan Material Toko Kurnia</div>
+    <div class="font-weight-bold">Sistem Pemesanan Rumah Makan Apung Wanawisata</div>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a href="/logout" class="nav-link navbar-link-item">Logout</a>
@@ -104,10 +104,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/kota"
+                                <a href="/wilayah"
                                    class="nav-link">
                                     <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Kota</p>
+                                    <p>Wilayah</p>
                                 </a>
                             </li>
                             <li class="nav-item">

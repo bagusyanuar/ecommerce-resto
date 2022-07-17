@@ -237,7 +237,7 @@
 .footer {
     height: 200px;
     width: 100%;
-    background-color: #117d17;
+    background-color: #461a0a;
 }
 
 .elipsis-one {
@@ -265,6 +265,34 @@
 .category-menu:hover {
     text-decoration: none;
     color: #0a4b0e;
+}
+
+.main-background-color {
+    background-color: #461a0a;
+}
+
+.main-text-color {
+    color: #461a0a;
+}
+
+.secondary-background-color {
+    background-color: #2a1006;
+}
+
+.secondary-text-color {
+    color: #2a1006;
+}
+
+.nav-pills .nav-link:not(.active) {
+    background-color: white !important;
+    color: #461a0a !important;
+}
+
+
+/* active (faded) */
+.nav-pills .nav-link {
+    background-color: #461a0a !important;
+    color: white !important;
 }
 
 

@@ -38,9 +38,9 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data->id }}">
                                 <div class="form-group w-100 mb-1">
-                                    <label for="kota">Kota</label>
+                                    <label for="kota">Wilayah</label>
                                     <select class="form-control" id="kota" name="kota">
-                                        <option value="">--pilih kota--</option>
+                                        <option value="">--pilih wilayah--</option>
                                         @foreach($kota as $v)
                                             <option value="{{ $v->id }}" {{ $data->kota !== null ? ($v->id === $data->kota->id ? 'selected' : '') : '' }}>{{ $v->nama }}</option>
                                         @endforeach

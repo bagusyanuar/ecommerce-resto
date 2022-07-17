@@ -17,7 +17,7 @@ class HomepageController extends CustomController
 
     public function index()
     {
-        $category = Category::all();
+        $category = Category::with('barang')->get();
         $data = Barang::with('category')->get();
         return view('member.index')->with([
             'categories' => $category,

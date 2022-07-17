@@ -17,7 +17,7 @@ class Transaction extends Model
         'ongkir',
         'total',
         'status',
-        'keterangan',
+        'alamat',
     ];
 
     public function user()

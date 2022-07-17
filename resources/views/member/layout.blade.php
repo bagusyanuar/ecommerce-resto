@@ -34,7 +34,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark"
-     style="height: 75px; background-color: #117d17; box-shadow: none !important;">
+     style="height: 75px; background-color: #461a0a; box-shadow: none !important;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('/assets/icon/brand-logo.png') }}" width="30" height="30" alt="">
@@ -50,16 +50,22 @@
                     <a class="nav-link f-bold color-semi-white" aria-current="page" href="/">Beranda</a>
                 </li>
                 <li class="nav-item mr-1">
-                    <a class="nav-link f-bold color-semi-white" aria-current="page" href="/beranda/tentang">Tentang Kami</a>
+                    <a class="nav-link f-bold color-semi-white" aria-current="page" href="/tentang">Tentang Kami</a>
                 </li>
                 <li class="nav-item mr-1">
-                    <a class="nav-link f-bold color-semi-white" aria-current="page" href="/beranda/hubungi">Hubungi Kami</a>
+                    <a class="nav-link f-bold color-semi-white" aria-current="page" href="/hubungi">Hubungi Kami</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
+                @guest()
+                    <a href="/login-member" class="navbar-item f-12">
+                        <i class="fa fa-user-o mr-2"></i>
+                        <span>Masuk / Daftar</span>
+                    </a>
+                @endguest
                 @auth()
                     <div style="position: relative">
-                        <a href="/beranda/cart" class="navbar-item f-12">
+                        <a href="/cart" class="navbar-item f-12">
                             <i class="fa fa-shopping-cart mr-2"></i>
                         </a>
                         <div class="custom-badge d-none" id="cart-notif"></div>
@@ -70,7 +76,7 @@
                             {{ auth()->user()->username }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-logout">
-                            <a href="/beranda/transaksi" class="navbar-item f-12 ml-3" style="color: black">
+                            <a href="/transaksi" class="navbar-item f-12 ml-3" style="color: black">
                                 <span>Transaksi</span>
                             </a>
                             <div class="dropdown-divider"></div>

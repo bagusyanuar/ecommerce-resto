@@ -16,7 +16,7 @@ class AddOngkir extends Migration
         Schema::table('transactions', function (Blueprint $table) {
             $table->integer('sub_total')->default(0)->after('no_transaksi');
             $table->integer('ongkir')->default(0)->after('sub_total');
-            $table->text('keterangan')->default('')->after('status');
+            $table->text('alamat')->default('')->after('status');
 
         });
     }
@@ -31,7 +31,7 @@ class AddOngkir extends Migration
         Schema::table('transactions', function (Blueprint $table) {
             $table->dropColumn('sub_total');
             $table->dropColumn('ongkir');
-            $table->dropColumn('keterangan');
+            $table->dropColumn('alamat');
         });
     }
 }

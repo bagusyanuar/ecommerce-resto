@@ -37,9 +37,9 @@
                             <form method="post" action="/ongkir/create">
                                 @csrf
                                 <div class="form-group w-100 mb-1">
-                                    <label for="kota">Kota</label>
+                                    <label for="kota">Wilayah</label>
                                     <select class="form-control" id="kota" name="kota">
-                                        <option value="">--pilih kota--</option>
+                                        <option value="">--pilih wilayah--</option>
                                         @foreach($data as $v)
                                             <option value="{{ $v->id }}">{{ $v->nama }}</option>
                                         @endforeach
