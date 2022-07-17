@@ -18,7 +18,9 @@ class ProductController extends CustomController
     {
         try {
             $name = $this->field('name');
+            $category = $this->field('category');
             $data = Barang::with('category')
+                ->where('category_id', '=', $category)
                 ->where('nama', 'LIKE', '%' . $name . '%')
                 ->get();
             return $this->jsonResponse('success', 200, $data);

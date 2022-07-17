@@ -146,7 +146,7 @@
                                 <a href="/pesanan-selesai-menunggu"
                                    class="nav-link">
                                     <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Ambil / Kirim</p>
+                                    <p>Di Kirim</p>
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -69,7 +69,7 @@
                 {data: 'tanggal'},
                 {data: 'no_transaksi'},
                 {data: 'user.member.nama'},
-                {data: 'keterangan'},
+                {data: 'alamat'},
                 {data: 'sub_total'},
                 {data: 'ongkir'},
                 {data: 'total'},

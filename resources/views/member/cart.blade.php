@@ -9,7 +9,7 @@
     <div class="container-fluid mt-2" style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
         <ol class="breadcrumb breadcrumb-transparent mb-2">
             <li class="breadcrumb-item">
-                <a href="/beranda" class="category-menu">Beranda</a>
+                <a href="/" class="category-menu">Beranda</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Keranjang
             </li>
@@ -58,17 +58,12 @@
         <hr>
         <div class="row mb-3">
             <div class="col-lg-3 col-md-6">
-                <div class="form-check">
-                    <input type="checkbox" checked="checked" class="form-check-input" id="pengiriman">
-                    <label class="form-check-label" for="pengiriman">Gunakan Jasa Pengiriman</label>
-                </div>
                 <div id="panel-pengiriman" class="mt-2 d-block">
                     <div class="form-group w-100 mb-1">
-                        <label for="kota">Kota</label>
+                        <label for="kota">Wilayah</label>
                         <select class="form-control" id="kota" name="kota">
                             @foreach($kota as $v)
-                                <option value="{{ $v->id }}"
-                                        data-harga="{{ $v->ongkir->total }}">{{ $v->nama }}</option>
+                                <option value="{{ $v->id }}" data-harga="{{ $v->ongkir->total }}">{{ $v->nama }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -98,7 +93,7 @@
                           id="lbl-total">Rp. {{  number_format($data->sum('total'), 0, ',', '.') }}</span>
                 </div>
                 <hr>
-                <a href="#" class="btn btn-outline-primary w-100" id="btn-checkout">Checkout</a>
+                <a href="#" class="btn btn-order w-100" id="btn-checkout">Checkout</a>
             </div>
         </div>
     </div>
@@ -111,14 +106,14 @@
         async function checkout() {
             try {
                 blockLoading(true);
-                let response = await $.post('/beranda/cart/checkout', {
+                let response = await $.post('/cart/checkout', {
                     ongkir: ongkir,
-                    keterangan: $('#alamat').val(),
+                    alamat: $('#alamat').val(),
                     kota: $( "#kota option:selected" ).text(),
                 });
                 blockLoading(false);
                 let payload = response['payload'];
-                window.location.href = '/beranda/pembayaran/' + payload + '/detail';
+                window.location.href = '/pembayaran/' + payload + '/detail';
             } catch (e) {
                 alert('Terjadi Kesalahan');
             }
@@ -127,7 +122,7 @@
         async function delete_keranjang(id) {
             try {
                 blockLoading(true);
-                let response = await $.post('/beranda/cart/destroy', {
+                let response = await $.post('/cart/destroy', {
                     id: id
                 });
                 blockLoading(false);
@@ -169,20 +164,20 @@
                     delete_keranjang(id);
                 });
             })
-            $('#pengiriman').on('change', function () {
-                if ($('#pengiriman').is(":checked")) {
-                    $('#panel-pengiriman').removeClass('d-none');
-                    $('#panel-pengiriman').addClass('d-block');
-                    setongkir();
-                } else {
-                    $('#panel-pengiriman').removeClass('d-block');
-                    $('#panel-pengiriman').addClass('d-none');
-                    ongkir = 0;
-                    $('#lbl-ongkir').html('Rp. ' + formatUang(ongkir.toString()));
-                    setTotal(ongkir);
-                    $('#alamat').val('')
-                }
-            });
+            // $('#pengiriman').on('change', function () {
+            //     if ($('#pengiriman').is(":checked")) {
+            //         $('#panel-pengiriman').removeClass('d-none');
+            //         $('#panel-pengiriman').addClass('d-block');
+            //         setongkir();
+            //     } else {
+            //         $('#panel-pengiriman').removeClass('d-block');
+            //         $('#panel-pengiriman').addClass('d-none');
+            //         ongkir = 0;
+            //         $('#lbl-ongkir').html('Rp. ' + formatUang(ongkir.toString()));
+            //         setTotal(ongkir);
+            //         $('#alamat').val('')
+            //     }
+            // });
 
             $('#kota').on('change', function () {
                 setongkir();

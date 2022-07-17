@@ -58,7 +58,8 @@ class PembayaranController extends CustomController
 
     public function cetak($id)
     {
-        $data = Transaction::with(['user', 'cart.product'])->where('user_id', '=', Auth::id())
+        $data = Transaction::with(['user', 'cart.product'])
+//            ->where('user_id', '=', Auth::id())
             ->findOrFail($id);
         $html = view('member.nota')->with(['data' => $data]);
         $pdf = \App::make('dompdf.wrapper');

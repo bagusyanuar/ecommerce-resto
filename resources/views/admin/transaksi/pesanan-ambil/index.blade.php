@@ -11,12 +11,12 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Pesanan Menunggu Di Ambil / Di Kirim</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Pesanan Di Kirim</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Pesanan Menunggu Di Ambil / Di Kirim
+                <li class="breadcrumb-item active" aria-current="page">Pesanan Menunggu Di Kirim
                 </li>
             </ol>
         </div>
@@ -41,6 +41,8 @@
                         <td class="text-center">
                             <a href="/pesanan-selesai-menunggu/{{ $v->id }}/detail" class="btn btn-sm btn-info btn-edit"
                                data-id="{{ $v->id }}"><i class="fa fa-info"></i></a>
+                            <a href="/pembayaran/{{ $v->id }}/cetak" target="_blank" class="btn btn-sm btn-success"
+                               data-id="{{ $v->id }}"><i class="fa fa-print"></i></a>
                         </td>
                     </tr>
                 @endforeach

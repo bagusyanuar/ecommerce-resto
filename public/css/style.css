@@ -1,6 +1,6 @@
 .login-body {
     height: 100vh;
-    background-color: #610C63;
+    background-color: #461a0a;
 }
 
 .login-icon {
@@ -136,56 +136,56 @@
 
 .btn-order-outline {
     border-radius: 10px;
-    border: solid 1px #117d17;
+    border: solid 1px #461a0a;
     padding: 10px 20px;
     text-align: center;
-    color: #117d17;
+    color: #461a0a;
 }
 
 .btn-order {
     border-radius: 10px;
-    border: solid 1px #117d17;
+    border: solid 1px #461a0a;
     padding: 10px 20px;
     text-align: center;
     color: whitesmoke;
-    background-color: #117d17;
+    background-color: #461a0a;
 }
 
 .btn-plus {
     border-radius: 5px;
-    border: solid 1px #117d17;
+    border: solid 1px #461a0a;
     text-align: center;
     color: whitesmoke;
-    background-color: #117d17;
+    background-color: #461a0a;
 }
 
 .btn-plus:hover {
-    background-color: #0a4b0e;
+    background-color: #2a1006;
     color: white;
     text-decoration: none;
 }
 
 .btn-minus {
     border-radius: 5px;
-    border: solid 1px #117d17;
+    border: solid 1px #461a0a;
     text-align: center;
-    color: #117d17;
+    color: #461a0a;
 }
 
 .btn-minus:hover {
-    background-color: #0a4b0e;
+    background-color: #461a0a;
     color: whitesmoke;
     text-decoration: none;
 }
 
 .btn-order:hover {
-    background-color: #0a4b0e;
+    background-color: #2a1006;
     color: white;
     text-decoration: none;
 }
 
 .btn-order-outline:hover {
-    background-color: #0a4b0e;
+    background-color: #461a0a;
     color: whitesmoke;
     text-decoration: none;
 }
@@ -223,14 +223,14 @@
 .custom-badge {
     position: absolute;
     top: 0;
-    right: -10px;
+    right: -6px;
     height: 15px;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 5px;
-    background-color: red;
+    border-radius: 50%;
+    background-color: #e36e48;
     color: white;
-    font-size: 8px;
+    font-size: 10px;
     text-align: center;
 }
 
@@ -259,12 +259,12 @@
 }
 
 .category-menu {
-    color: #117d17;
+    color: #461a0a;
     font-weight: bold;
 }
 .category-menu:hover {
     text-decoration: none;
-    color: #0a4b0e;
+    color: #2a1006;
 }
 
 .main-background-color {
@@ -283,16 +283,6 @@
     color: #2a1006;
 }
 
-.nav-pills .nav-link:not(.active) {
-    background-color: white !important;
-    color: #461a0a !important;
-}
 
-
-/* active (faded) */
-.nav-pills .nav-link {
-    background-color: #461a0a !important;
-    color: white !important;
-}
 
 

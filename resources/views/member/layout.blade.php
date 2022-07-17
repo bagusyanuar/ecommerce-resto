@@ -37,8 +37,8 @@
      style="height: 75px; background-color: #461a0a; box-shadow: none !important;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('/assets/icon/brand-logo.png') }}" width="30" height="30" alt="">
-            <span>Material Kurnia</span>
+            <img src="{{ asset('/assets/icon/brand-logo.png') }}" width="30" height="30" alt="" class="mr-2">
+            <span>Rumah Makan Apung Wanawisata</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,13 +76,24 @@
                             {{ auth()->user()->username }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-logout">
-                            <a href="/transaksi" class="navbar-item f-12 ml-3" style="color: black">
-                                <span>Transaksi</span>
+                            <a href="/transaksi" class="navbar-item f-12 ml-3 d-block" style="color: black">
+                                <span class="main-text-color">
+                                    <i class="fa fa-briefcase mr-1"></i>
+                                    Transaksi
+                                </span>
+                            </a>
+                            <a href="/profil" class="navbar-item f-12 ml-3 d-block" style="color: black">
+                                <span class="main-text-color">
+                                    <i class="fa fa-user mr-2"></i>
+                                    Profil
+                                </span>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="/logout" class="navbar-item f-12 ml-3" style="color: black">
-                                <i class="fa fa-power-off mr-1"></i>
+                                <span class="main-text-color">
+                                    <i class="fa fa-power-off mr-1"></i>
                                 <span>Keluar</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -138,7 +149,7 @@
         async function getCountCart() {
             try {
                 let el = $('#cart-notif');
-                let response = await $.get('/beranda/cart/count');
+                let response = await $.get('/cart/count');
                 let payload = response.payload;
                 if (payload > 0) {
                     el.html(payload);
@@ -153,6 +164,7 @@
                 console.log(e);
             }
         }
+
         $(document).ready(function () {
             getCountCart();
         })

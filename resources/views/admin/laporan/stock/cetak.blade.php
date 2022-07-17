@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">LAPORAN STOCK TOKO MATERIAL KURNIA</div>
+<div class="text-center f-bold report-title">LAPORAN STOCK RUMAH MAKAN APUNG WANA WISATA</div>
 <div class="text-center">Periode Laporan Per Tanggal {{ date('d-m-Y') }} </div>
 <hr>
 <table id="my-table" class="table display">

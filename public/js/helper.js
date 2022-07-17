@@ -48,7 +48,7 @@ async function AjaxPost(url, param = {}, onSuccess = function () {
 
 
 function createLoader(text = 'sedang mengunduh data...', height = 600) {
-    return '<div class="d-flex flex-column align-items-center justify-content-center" style="height: ' + height + 'px">' +
+    return '<div class="d-flex flex-column align-items-center justify-content-center w-100" style="height: ' + height + 'px">' +
         '<div class="spinner-border text-primary" role="status" "style="color: #117d17;">\n' +
         '  <span class="sr-only" style="color: #117d17;">Loading...</span>\n' +
         '</div>' +

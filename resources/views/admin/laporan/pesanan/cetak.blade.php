@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">LAPORAN PESANAN TOKO MATERIAL KURNIA</div>
+<div class="text-center f-bold report-title">LAPORAN PESANAN RUMAH MAKAN APUNG WANA WISATA</div>
 <div class="text-center">Periode Laporan {{ $tgl1 }} - {{ $tgl2 }} </div>
 <hr>
 <table id="my-table" class="table display">
@@ -47,7 +47,7 @@
             <td>{{ $v->tanggal }}</td>
             <td>{{ $v->no_transaksi }}</td>
             <td>{{ $v->user->member->nama }}</td>
-            <td>{{ $v->keterangan }}</td>
+            <td>{{ $v->alamat }}</td>
             <td>{{ number_format($v->sub_total, 0, ',', '.') }}</td>
             <td>{{ number_format($v->ongkir, 0, ',', '.') }}</td>
             <td>{{ number_format($v->total, 0, ',', '.') }}</td>

@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">LAPORAN PEMBAYARAN TOKO MATERIAL KURNIA</div>
+<div class="text-center f-bold report-title">LAPORAN PEMBAYARAN RUMAH MAKAN APUNG WANA WISATA</div>
 <div class="text-center">Periode Laporan {{ $tgl1 }} - {{ $tgl2 }} </div>
 <hr>
 <table id="my-table" class="table display">

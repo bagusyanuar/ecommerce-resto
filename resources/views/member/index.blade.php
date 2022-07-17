@@ -1,5 +1,21 @@
 @extends('member.layout')
 
+@section('css')
+    <style>
+        .nav-pills .nav-link:not(.active) {
+            background-color: white !important;
+            color: #461a0a !important;
+        }
+
+
+        /* active (faded) */
+        .nav-pills .nav-link {
+            background-color: #461a0a !important;
+            color: white !important;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div id="overlay-loading">
         <div class="d-flex justify-content-center align-items-center" id="overlay-loading-child">
@@ -16,7 +32,8 @@
             <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
                 @foreach($categories as $c)
                     <li class="nav-item">
-                        <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-tab-{{ $c->id }}" data-toggle="tab"
+                        <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-tab-{{ $c->id }}"
+                           data-toggle="tab"
                            href="#tab-{{ $c->id }}" role="tab"
                            aria-controls="tab-{{ $c->id }}" aria-selected="true">{{ $c->nama }}</a>
                     </li>
@@ -24,31 +41,35 @@
             </ul>
             <div class="tab-content" id="myTabContent">
                 @foreach($categories as $c)
-                    <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="tab-{{ $c->id }}" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show {{ $loop->first ? 'active' : '' }}" id="tab-{{ $c->id }}"
+                         role="tabpanel" aria-labelledby="home-tab">
                         <div class="d-flex mb-3">
                             <div class="flex-grow-1 mr-2">
-                                <input type="text" class="form-control" id="filter-{{ $c->id }}" placeholder="Cari Menu....">
+                                <input type="text" class="form-control" id="filter-{{ $c->id }}"
+                                       placeholder="Cari Menu....">
                             </div>
                             <div>
-                                <a href="#" class="btn btn-success btn-search" data-id="{{ $c->id }}"><i
+                                <a href="#" class="btn btn-order btn-search" data-id="{{ $c->id }}"
+                                   style="padding-top: 6px; padding-bottom: 6px;"><i
                                         class="fa fa-search mr-1"></i><span>Cari</span></a>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="panel-product-{{ $c->id }}">
                             @foreach($c->barang as $v)
                                 <div class="col-lg-3 col-md-4 mb-4">
                                     <div class="card card-item" data-id="{{ $v->id }}"
-                                         style="cursor: pointer; height: 400px; border-color: #117d17">
+                                         style="cursor: pointer; height: 370px; border-color: #461a0a">
                                         <img class="card-img-top" src="{{ asset('/assets/barang'). "/" . $v->gambar }}"
-                                             alt="Card image cap" height="200">
+                                             alt="Card image cap" height="220">
                                         <div class="card-body" style="height: 200px">
-                                            <p class="card-title font-weight-bold elipsis-one text-green">{{ $v->nama }}</p>
-                                            <p class="text-green elipsis-two mb-0"
+                                            <p class="card-title font-weight-bold elipsis-one main-text-color mb-0">{{ $v->nama }}</p>
+                                            <p class="elipsis-two mb-0"
                                                style="color: #535961; font-size: 12px; height: 35px">{{ $v->deskripsi }}</p>
-                                            <p class="font-weight-bold text-green" style="font-size: 20px;">
+                                            <p class="font-weight-bold main-text-color mb-1" style="font-size: 20px;">
                                                 Rp. {{ number_format($v->harga, 0, ',', '.') }}</p>
                                             <div class="d-flex w-100 justify-content-between align-items-center">
-                                                <p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock
+                                                <p class="text-green mb-0" style="color: #535961; font-size: 12px;">
+                                                    Stock
                                                     : {{ $v->qty }}</p>
                                             </div>
 
@@ -59,61 +80,6 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-        </div>
-        <div class="row w-100">
-            <div class="col-lg-2">
-                <div class="card" style="border-color: #117d17">
-                    <div class="card-header" style="background-color: #117d17 ">
-                        <p class="font-weight-bold mb-0" style="color: whitesmoke; font-size: 18px">Kategori</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        @foreach($categories as $category)
-                            <li class="list-group-item">
-                                <a href="/beranda/category/{{ $category->id }}"
-                                   class="category-menu">{{ $category->nama }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-10">
-                <div class="d-flex mb-3">
-                    <div class="flex-grow-1 mr-2">
-                        <input type="text" class="form-control" id="filter" placeholder="Cari Nama barang"
-                               name="filter">
-                    </div>
-                    <div>
-                        <a href="#" class="btn btn-success" id="btn-search"><i
-                                class="fa fa-search mr-1"></i><span>Cari</span></a>
-                    </div>
-                </div>
-
-                <div class="panel-product" id="panel-product">
-                    <div class="row">
-                        @foreach($data as $v)
-                            <div class="col-lg-3 col-md-4 mb-4">
-                                <div class="card card-item" data-id="{{ $v->id }}"
-                                     style="cursor: pointer; height: 400px; border-color: #117d17">
-                                    <img class="card-img-top" src="{{ asset('/assets/barang'). "/" . $v->gambar }}"
-                                         alt="Card image cap" height="200">
-                                    <div class="card-body" style="height: 200px">
-                                        <p class="card-title font-weight-bold elipsis-one text-green">{{ $v->nama }}</p>
-                                        <p class="text-green elipsis-two mb-0"
-                                           style="color: #535961; font-size: 12px; height: 35px">{{ $v->deskripsi }}</p>
-                                        <p class="font-weight-bold text-green" style="font-size: 20px;">
-                                            Rp. {{ number_format($v->harga, 0, ',', '.') }}</p>
-                                        <div class="d-flex w-100 justify-content-between align-items-center">
-                                            <p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock
-                                                : {{ $v->qty }}</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -129,18 +95,21 @@
         }
 
         function singleProductElement(data) {
+
             return '<div class="col-lg-3 col-md-4 mb-4">' +
-                '<div class="card card-item" data-id="' + data['id'] + '" style="cursor: pointer; height: 400px; border-color: #117d17">' +
-                '<img class="card-img-top" src="/assets/barang/' + data['gambar'] + '" alt="Card image cap" height="200">' +
+                '<div class="card card-item" data-id="' + data['id'] + '"' +
+                'style="cursor: pointer; height: 370px; border-color: #461a0a">' +
+                '<img class="card-img-top" src="/assets/barang/' + data['gambar'] + '" alt="Card image cap" height="220">' +
                 '<div class="card-body" style="height: 200px">' +
-                '<p class="card-title font-weight-bold elipsis-one text-green">' + data['nama'] + '</p>' +
-                '<p class="text-green elipsis-two mb-0" style="color: #535961; font-size: 12px; height: 35px">' + data['deskripsi'] + '</p>' +
-                '<p class="font-weight-bold text-green" style="font-size: 20px;">Rp. ' + formatUang(data['harga']) + '</p>' +
-                '<div class="d-flex w-100 justify-content-between align-items-center">' +
-                '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock : ' + data['qty'] + '</p>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
+                '<p class="card-title font-weight-bold elipsis-one main-text-color mb-0">' + data['nama'] + '</p>' +
+                '<p class="elipsis-two mb-0" style="color: #535961; font-size: 12px; height: 35px">' + data['deskripsi'] + '</p>' +
+                '<p class="font-weight-bold main-text-color mb-1" style="font-size: 20px;">\n' +
+                'Rp. ' + formatUang(data['harga']) + '</p>\n' +
+                '<div class="d-flex w-100 justify-content-between align-items-center">\n' +
+                '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock : ' + data['qty'] + '</p>\n' +
+                '</div>\n' +
+                '</div>\n' +
+                '</div>\n' +
                 '</div>';
         }
 
@@ -149,23 +118,23 @@
             $.each(data, function (k, v) {
                 child += singleProductElement(v);
             });
-            return '<div class="row">' + child + '</div>';
+            return child;
         }
 
-        async function getProductByName() {
-            let el = $('#panel-product');
+        async function getProductByName(index) {
+            let el = $('#panel-product-' + index);
             el.empty();
             el.append(createLoader());
-            let name = $('#filter').val();
+            let name = $('#filter-' + index).val();
             try {
-                let response = await $.get('/beranda/product/data?name=' + name);
+                let response = await $.get('/product/data?name=' + name + '&category=' + index);
                 el.empty();
                 if (response['status'] === 200) {
                     if (response['payload'].length > 0) {
                         el.append(createElementProduct(response['payload']));
                         $('.card-item').on('click', function () {
                             let id = this.dataset.id;
-                            window.location.href = '/beranda/product/' + id + '/detail';
+                            window.location.href = '/product/' + id + '/detail';
                         });
                     } else {
                         el.append(emptyElementProduct());
@@ -173,6 +142,7 @@
                 }
             } catch (e) {
                 console.log(e);
+                alert('terjadi kesalahan');
             }
         }
 
@@ -182,12 +152,13 @@
             });
             $('.card-item').on('click', function () {
                 let id = this.dataset.id;
-                window.location.href = '/beranda/product/' + id + '/detail';
+                window.location.href = '/product/' + id + '/detail';
             });
 
-            $('#btn-search').on('click', function (e) {
+            $('.btn-search').on('click', function (e) {
+                let id = this.dataset.id;
                 e.preventDefault();
-                getProductByName();
+                getProductByName(id);
             })
         });
     </script>

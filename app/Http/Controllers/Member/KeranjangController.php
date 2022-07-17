@@ -84,7 +84,7 @@ class KeranjangController extends CustomController
     {
         try {
             DB::beginTransaction();
-            $keterangan = $this->postField('keterangan');
+            $alamat = $this->postField('alamat');
             $ongkir = (int)$this->postField('ongkir');
             $no_transaksi = 'TR-' . \date('YmdHis');
 
@@ -102,7 +102,7 @@ class KeranjangController extends CustomController
                 'ongkir' => (int)$ongkir,
                 'total' => $total,
                 'status' => 'menunggu',
-                'keterangan' => $ongkir > 0 ? '(' . $this->postField('kota') . ') ' . $keterangan : ''
+                'alamat' => $ongkir > 0 ? '(' . $this->postField('kota') . ') ' . $alamat : ''
             ];
 
             $transaction = Transaction::create($data);

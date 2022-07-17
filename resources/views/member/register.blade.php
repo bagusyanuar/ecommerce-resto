@@ -23,8 +23,8 @@
         <div class="col-lg-6 col-md-6 col-sm-11">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('/assets/icon/logo.png') }}" class="w-100 login-icon mb-3"/>
-                    <p class="f-bold mb-2 text-center" style="font-size: 18px">Silahkan Login</p>
+                    <img src="{{ asset('/assets/icon/logo-login.png') }}" class="w-100 login-icon mb-3"/>
+                    <p class="f-bold mb-2 text-center main-text-color" style="font-size: 18px; letter-spacing: 1px;">Silahkan Daftar</p>
                     <form method="post">
                         @csrf
                         <div class="row">
@@ -65,10 +65,10 @@
                                       name="alamat"></textarea>
                         </div>
                         <div class="w-100 mb-2 mt-3">
-                            <button type="submit" class="btn btn-primary w-100">Daftar</button>
+                            <button type="submit" class="btn btn-order w-100">Daftar</button>
                         </div>
                         <div class="w-100" style="text-align: end">
-                            <a class="text-right" href="/login-member">Sudah Punya Akun?</a>
+                            <a class="text-right category-menu" href="/login-member" style="text-decoration: none;">Sudah Punya Akun?</a>
                         </div>
 
                     </form>

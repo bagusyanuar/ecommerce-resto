@@ -67,6 +67,14 @@
                                     <span class="font-weight-bold">: {{ $data->bank }}</span>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <span class="font-weight-bold">Alamat</span>
+                                </div>
+                                <div class="col-lg-8 col-md-6">
+                                    <span class="font-weight-bold">: {{ $data->transaction->alamat }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,7 +147,7 @@
                                     <label for="deskripsi">Alasan</label>
                                     <textarea class="form-control" rows="3" name="deskripsi" id="deskripsi"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100" id="btn-submit">Submit
+                                <button type="submit" class="btn btn-order w-100" id="btn-submit">Submit
                                 </button>
                             </form>
                         </div>

@@ -29,7 +29,7 @@ class PesananController extends CustomController
         if ($this->request->method() === 'POST') {
             try {
                 $data->update([
-                    'status' => 'selesai-packing'
+                    'status' => 'kirim'
                 ]);
                 return redirect('/pesanan-proses');
             } catch (\Exception $e) {
@@ -43,7 +43,7 @@ class PesananController extends CustomController
     public function ambil()
     {
         $data = Transaction::with(['user.member', 'cart'])
-            ->where('status', '=', 'selesai-packing')
+            ->where('status', '=', 'kirim')
             ->get();
         return view('admin.transaksi.pesanan-ambil.index')->with(['data' => $data]);
     }

@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">NOTA PEMBELIAN MATERIAL TOKO KURNIA</div>
+<div class="text-center f-bold report-title">NOTA PEMBELIAN RUMAH MAKAN APUNG WANAWISATA</div>
 <div class="text-center">
     <span>Jl. Adi Sumarmo No. 18, Manahan, Surakarta</span>
 </div>
@@ -89,7 +89,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-7"></div>
+    <div class="col-xs-7" style="font-style: italic; font-size: 10px;">NB: Alamat pengiriman ( {{ $data->alamat }} )</div>
     <div class="col-xs-2">
         <div class="f-bold">Ongkir</div>
     </div>

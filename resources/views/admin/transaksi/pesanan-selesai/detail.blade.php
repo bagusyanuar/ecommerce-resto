@@ -59,16 +59,14 @@
                                     <span class="font-weight-bold">: {{ $data->user->member->nama }}</span>
                                 </div>
                             </div>
-                            @if($data->keterangan != '')
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-6">
-                                        <span class="font-weight-bold">Lokasi Pengiriman</span>
-                                    </div>
-                                    <div class="col-lg-8 col-md-6">
-                                        <span class="font-weight-bold">: {{ $data->keterangan }}</span>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <span class="font-weight-bold">Alamat</span>
                                 </div>
-                            @endif
+                                <div class="col-lg-8 col-md-6">
+                                    <span class="font-weight-bold">: {{ $data->alamat }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

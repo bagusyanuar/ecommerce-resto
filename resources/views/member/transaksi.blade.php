@@ -9,7 +9,7 @@
     <div class="container-fluid mt-2" style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
         <ol class="breadcrumb breadcrumb-transparent mb-2">
             <li class="breadcrumb-item">
-                <a href="/beranda" class="category-menu">Beranda</a>
+                <a href="/" class="category-menu">Beranda</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Transaksi
             </li>
@@ -41,16 +41,16 @@
                         <td>{{ number_format($v->ongkir, 0, ',', '.') }}</td>
                         <td>{{ number_format($v->total, 0, ',', '.') }}</td>
                         <td>
-                            @if($v->status == 'selesai-packing')
-                                {{ $v->keterangan != '' ? 'Barang Di Kirim' : 'Menunggu Di Ambil' }}
+                            @if($v->status == 'kirim')
+                                Di Kirim
                             @else
                                 {{ ucwords($v->status) }}
                             @endif
                         </td>
                         <td>
-                            <a href="/beranda/transaksi/{{ $v->id }}/detail" class="btn btn-sm btn-info btn-edit"
+                            <a href="/transaksi/{{ $v->id }}/detail" class="btn btn-sm btn-info btn-edit"
                             ><i class="fa fa-info"></i></a>
-                            <a href="/beranda/pembayaran/{{ $v->id }}/detail" class="btn btn-sm btn-success"><i
+                            <a href="/pembayaran/{{ $v->id }}/detail" class="btn btn-sm btn-success"><i
                                     class="fa fa-credit-card"></i></a></td>
                     </tr>
                 @empty

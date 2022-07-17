@@ -23,8 +23,8 @@
         <div class="col-lg-3 col-md-6 col-sm-11">
             <div class="card">
                 <div class="card-body">
-                    <img src="{{ asset('/assets/icon/logo.png') }}" class="w-100 login-icon mb-3"/>
-                    <p class="f-bold mb-2 text-center" style="font-size: 18px">Silahkan Login</p>
+                    <img src="{{ asset('/assets/icon/logo-login.png') }}" class="w-100 login-icon mb-3"/>
+                    <p class="f-bold mb-2 text-center main-text-color" style="font-size: 18px; letter-spacing: 1px;">Silahkan Login</p>
                     <form method="post">
                         @csrf
                         <div class="w-100 mb-1">
@@ -38,10 +38,10 @@
                                    name="password">
                         </div>
                         <div class="w-100 mb-2 mt-3">
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                            <button type="submit" class="btn btn-order w-100">Login</button>
                         </div>
                         <div class="w-100" style="text-align: end">
-                            <a class="text-right" href="/register">Belum Punya Akun?</a>
+                            <a class="text-right category-menu" href="/register" style="text-decoration: none;">Belum Punya Akun?</a>
                         </div>
 
                     </form>

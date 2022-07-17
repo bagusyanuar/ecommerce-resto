@@ -17,7 +17,7 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Detail Pesanan Menunggu Di Ambil / Di Kirim</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Detail Pesanan Di Kirim</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
@@ -25,7 +25,7 @@
                 <li class="breadcrumb-item">
                     <a href="/pesanan-selesai-menunggu">Pesanan</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page"> Detail Pesanan Menunggu Di Ambil / Di Kirim
+                <li class="breadcrumb-item active" aria-current="page"> Detail Pesanan Di Kirim
                 </li>
             </ol>
         </div>
@@ -34,7 +34,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <p class="font-weight-bold">Detail Pesanan Menunggu Di Ambil / Di Kirim</p>
+                            <p class="font-weight-bold">Detail Pesanan Di Kirim</p>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
                                     <span class="font-weight-bold">No. Transaksi</span>
@@ -59,16 +59,14 @@
                                     <span class="font-weight-bold">: {{ $data->user->member->nama }}</span>
                                 </div>
                             </div>
-                            @if($data->keterangan != '')
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-6">
-                                        <span class="font-weight-bold">Lokasi Pengiriman</span>
-                                    </div>
-                                    <div class="col-lg-8 col-md-6">
-                                        <span class="font-weight-bold">: {{ $data->keterangan }}</span>
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <span class="font-weight-bold">Lokasi Alamat</span>
                                 </div>
-                            @endif
+                                <div class="col-lg-8 col-md-6">
+                                    <span class="font-weight-bold">: {{ $data->alamat }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,7 +135,7 @@
                             <hr>
                             <form method="post">
                                 @csrf
-                                <button type="submit" class="btn btn-primary w-100" id="btn-submit">Submit
+                                <button type="submit" class="btn btn-order w-100" id="btn-submit">Selesai
                                 </button>
                             </form>
                         </div>

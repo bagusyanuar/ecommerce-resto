@@ -15,10 +15,10 @@
     <div class="container-fluid mt-2" style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
         <ol class="breadcrumb breadcrumb-transparent mb-2">
             <li class="breadcrumb-item">
-                <a href="/beranda" class="category-menu">Beranda</a>
+                <a href="/" class="category-menu">Beranda</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/beranda/transaksi" class="category-menu">Transaksi</a>
+                <a href="/transaksi" class="category-menu">Transaksi</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">{{ $data->no_transaksi }}
             </li>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="card">
-                        <div class="card-header" style="background-color: #117d17">
+                        <div class="card-header" style="background-color: #461a0a">
                             <p class="font-weight-bold mb-0" style="color: whitesmoke; font-size: 18px">Detail
                                 Pembayaran</p>
                         </div>
@@ -47,8 +47,9 @@
                                 </div>
                             </div>
                             @if($data->waiting_payment == null)
+                                <hr>
                                 <form method="post" enctype="multipart/form-data"
-                                      action="/beranda/pembayaran/{{ $data->id }}/create">
+                                      action="/pembayaran/{{ $data->id }}/create">
                                     @csrf
                                     <div class="form-group w-100 mt-2">
                                         <label for="bank">Pembayaran Bank</label>
@@ -82,18 +83,27 @@
                             @else
                                 <hr>
                                 @if($data->waiting_payment->status == 'menunggu')
-                                    <p class="text-green text-justify">NB: Terima kasih, anda telah melakukan
+                                    <p class="main-text-color text-justify">NB: Terima kasih, anda telah melakukan
                                         pembayaran. Silahkan
                                         menunggu konfirmasi dari admin kami.</p>
                                 @elseif($data->waiting_payment->status == 'terima')
-                                    <p class="text-green text-justify">NB: Terima kasih, pembayaran anda sudah kami
-                                        konfirmasi. Silahkan Menunggu karyawan kami akan segera mempacking da
-                                        mengirimkan barang ke tempat anda</p>
-                                    <a href="/beranda/pembayaran/{{ $data->id }}/cetak" class="btn btn-order w-100" target="_blank">
+                                    @if($data->status == 'selesai')
+                                        <p class="main-text-color text-justify">NB: Transaksi anda telah selesai. Terima
+                                            kasih telah memesan di tempat kami</p>
+                                    @else
+                                        <p class="main-text-color text-justify">NB: Terima kasih, pembayaran anda sudah
+                                            kami
+                                            konfirmasi. Silahkan Menunggu karyawan kami akan segera mengemas dan
+                                            mengirimkan pesanan ke tempat anda</p>
+                                    @endif
+
+                                    <a href="/pembayaran/{{ $data->id }}/cetak" class="btn btn-order w-100"
+                                       target="_blank">
                                         <i class="fa fa-print mr-2"></i>Cetak Nota
                                     </a>
                                 @elseif($data->waiting_payment->status == 'tolak')
-                                    <p class="text-green text-justify">NB: Maaf pembayaran anda tidak kami terima, di
+                                    <p class="main-text-color text-justify">NB: Maaf pembayaran anda tidak kami terima,
+                                        di
                                         karenakan {{ $data->waiting_payment->keterangan }}</p>
                                 @endif
                             @endif
