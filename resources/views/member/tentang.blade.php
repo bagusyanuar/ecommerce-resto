@@ -11,7 +11,7 @@
         </ol>
         <div class="w-100 product-detail" style="min-height: 350px">
             <p class="mb-1" style="color: #535961;">
-                Kami adalah toko material toilet terlengkap se solo raya
+                Kami adalah tempat makan dengan nuansa rumah apung, satu satu nya di karisidenan surakarta.
             </p>
         </div>
     </div>

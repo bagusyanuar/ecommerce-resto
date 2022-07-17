@@ -146,6 +146,7 @@ Route::group(['prefix' => 'pembayaran'], function () {
 
 Route::get('/tentang', [\App\Http\Controllers\Member\HomepageController::class, 'about']);
 Route::get('/hubungi', [\App\Http\Controllers\Member\HomepageController::class, 'contact']);
+Route::match(['post', 'get'],'/profil', [\App\Http\Controllers\Member\HomepageController::class, 'profile']);
 
 
 

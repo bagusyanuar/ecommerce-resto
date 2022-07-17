@@ -22,10 +22,10 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if(\auth()->user()->role === 'admin') {
+                if(\auth()->user()->role === 'admin' || \auth()->user()->role === 'karyawan') {
                     return redirect('/dashboard');
                 }else {
-                    return redirect('/beranda');
+                    return redirect('/');
                 }
 
             }
