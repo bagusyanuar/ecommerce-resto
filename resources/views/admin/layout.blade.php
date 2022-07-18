@@ -44,7 +44,8 @@
         </a>
         <div class="my-sidebar-menu">
             <ul class="nav nav-sidebar nav-pills flex-column">
-                <nav class="mt-2 nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <nav class="mt-2 nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                     data-accordion="false">
                     <li class="nav-item">
                         <a href="/dashboard"
                            class="nav-link">
@@ -63,14 +64,17 @@
                                 <i class="right fa fa-angle-down"></i>
                             </p>
                         </a>
+
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/admin"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Admin</p>
-                                </a>
-                            </li>
+                            @if(auth()->user()->role == 'admin')
+                                <li class="nav-item">
+                                    <a href="/admin"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Admin</p>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a href="/member"
                                    class="nav-link">
@@ -80,45 +84,47 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-database"></i>
-                            <p>
-                                Data
-                                <i class="right fa fa-angle-down"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/category"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Kategori</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/product"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Produk</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/wilayah"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Wilayah</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/ongkir"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Ongkos Kirim</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if(auth()->user()->role == 'admin')
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-database"></i>
+                                <p>
+                                    Data
+                                    <i class="right fa fa-angle-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/category"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Kategori</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/product"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Produk</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/wilayah"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Wilayah</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/ongkir"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Ongkos Kirim</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-briefcase"></i>
@@ -158,38 +164,40 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-bar-chart"></i>
-                            <p>
-                                Laporan
-                                <i class="right fa fa-angle-down"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/laporan-pesanan"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Pesanan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/laporan-pembayaran"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Pembayaran</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/laporan-stock"
-                                   class="nav-link">
-                                    <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                    <p>Stock</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if(auth()->user()->role == 'admin')
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-bar-chart"></i>
+                                <p>
+                                    Laporan
+                                    <i class="right fa fa-angle-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/laporan-pesanan"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Pesanan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/laporan-pembayaran"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Pembayaran</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/laporan-stock"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Stock</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </nav>
             </ul>
         </div>
