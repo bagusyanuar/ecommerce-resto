@@ -42,6 +42,7 @@
                     <th>Tanggal</th>
                     <th>No. Transaksi</th>
                     <th>Customer</th>
+                    <th>Jenis</th>
                     <th>Alamat Pengiriman</th>
                     <th>Sub Total</th>
                     <th>Ongkir</th>
@@ -69,6 +70,7 @@
                 {data: 'tanggal'},
                 {data: 'no_transaksi'},
                 {data: 'user.member.nama'},
+                {data: 'waiting_payment.jenis'},
                 {data: 'alamat'},
                 {data: 'sub_total'},
                 {data: 'ongkir'},

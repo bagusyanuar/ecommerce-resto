@@ -16,6 +16,7 @@ class Payment extends Model
         'nama',
         'bukti',
         'total',
+        'jenis',
         'status',
         'keterangan',
     ];

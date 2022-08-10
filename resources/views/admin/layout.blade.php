@@ -105,7 +105,7 @@
                                     <a href="/product"
                                        class="nav-link">
                                         <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
-                                        <p>Produk</p>
+                                        <p>Menu</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

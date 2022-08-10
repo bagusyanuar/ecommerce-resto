@@ -37,6 +37,7 @@
         <th>Atas Nama</th>
         <th>No. Transaksi</th>
         <th>Customer</th>
+        <th>Jenis</th>
         <th>Total</th>
     </tr>
     </thead>
@@ -50,6 +51,7 @@
             <td>{{ $v->nama }}</td>
             <td>{{ $v->transaction->no_transaksi }}</td>
             <td>{{ $v->transaction->user->member->nama }}</td>
+            <td>{{ $v->jenis}}</td>
             <td>{{ number_format($v->total, 0, ',', '.') }}</td>
         </tr>
     @endforeach

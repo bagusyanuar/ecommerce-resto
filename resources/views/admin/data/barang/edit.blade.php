@@ -17,13 +17,13 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Produk</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Menu Makanan & Minuman</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="/product">Produk</a>
+                    <a href="/product">Menu Makanan & Minuman</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">Edit
                 </li>
@@ -38,12 +38,12 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data->id }}">
                                 <div class="w-100 mb-1">
-                                    <label for="nama" class="form-label">Nama Barang</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama Barang"
+                                    <label for="nama" class="form-label">Nama Menu</label>
+                                    <input type="text" class="form-control" id="nama" placeholder="Nama Menu"
                                            name="nama" value="{{ $data->nama }}">
                                 </div>
                                 <div class="form-group w-100 mb-1">
-                                    <label for="kategori">Kategori Barang</label>
+                                    <label for="kategori">Kategori Menu</label>
                                     <select class="form-control" id="kategori" name="kategori">
                                         <option value="">--pilih kategori--</option>
                                         @foreach($category as $v)
@@ -52,22 +52,22 @@
                                     </select>
                                 </div>
                                 <div class="w-100 mb-1">
-                                    <label for="harga" class="form-label">Harga barang</label>
-                                    <input type="number" class="form-control" id="harga" placeholder="Harga Barang"
+                                    <label for="harga" class="form-label">Harga Menu</label>
+                                    <input type="number" class="form-control" id="harga" placeholder="Harga Menu"
                                            name="harga" value="{{ $data->harga }}">
                                 </div>
                                 <div class="w-100 mb-1">
-                                    <label for="qty" class="form-label">Qty</label>
-                                    <input type="number" class="form-control" id="qty" placeholder="Qty Barang"
+                                    <label for="qty" class="form-label">Porsi</label>
+                                    <input type="number" class="form-control" id="qty" placeholder="Porsi Menu"
                                            name="qty" value="{{ $data->qty }}">
                                 </div>
                                 <div class="w-100 mb-1">
-                                    <label for="deskripsi" class="form-label">Deskripsi barang</label>
-                                    <textarea type="text" class="form-control" id="deskripsi" placeholder="Deskripsi Barang"
+                                    <label for="deskripsi" class="form-label">Deskripsi Menu</label>
+                                    <textarea type="text" class="form-control" id="deskripsi" placeholder="Deskripsi Menu"
                                               name="deskripsi" rows="3">{{ $data->deskripsi }}</textarea>
                                 </div>
                                 <div class="w-100 mb-1 {{ $data->gambar === null ? 'd-none' : '' }}" id="panel-gambar">
-                                    <label for="gambar" class="form-label d-block">Gambar barang</label>
+                                    <label for="gambar" class="form-label d-block">Gambar Menu</label>
                                     <div class="d-flex align-items-end">
                                         <a target="_blank"
                                            href="{{ asset('assets/barang') .'/'. $data->gambar }}">
@@ -81,8 +81,8 @@
                                     </div>
                                 </div>
                                 <div class="w-100 mb-1 {{ $data->gambar === null ? '' : 'd-none' }}" id="panel-input-gambar">
-                                    <label for="gambar" class="form-label">Gambar barang</label>
-                                    <input type="file" class="form-control" id="gambar" placeholder="Gambar Barang"
+                                    <label for="gambar" class="form-label">Gambar Menu</label>
+                                    <input type="file" class="form-control" id="gambar" placeholder="Gambar Menu"
                                            name="gambar">
                                     <a href="#" class="btn-batal" id="btn-batal">Batal</a>
                                 </div>

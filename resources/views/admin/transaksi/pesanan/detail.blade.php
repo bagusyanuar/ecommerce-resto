@@ -61,12 +61,22 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
-                                    <span class="font-weight-bold">Pembayaran Via</span>
+                                    <span class="font-weight-bold">Jenis Pembayaran</span>
                                 </div>
                                 <div class="col-lg-8 col-md-6">
-                                    <span class="font-weight-bold">: {{ $data->bank }}</span>
+                                    <span class="font-weight-bold">: {{ $data->jenis }}</span>
                                 </div>
                             </div>
+                            @if($data->jenis == 'transfer')
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <span class="font-weight-bold">Pembayaran Via</span>
+                                    </div>
+                                    <div class="col-lg-8 col-md-6">
+                                        <span class="font-weight-bold">: {{ $data->bank }}</span>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
                                     <span class="font-weight-bold">Alamat</span>
@@ -79,19 +89,21 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <p class="font-weight-bold">Detail Pembayaran</p>
-                            <div>
-                                <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
-                                <a target="_blank"
-                                   href="{{ asset('assets/bukti')."/".$data->bukti }}">
-                                    <img src="{{  asset('assets/bukti')."/".$data->bukti }}" alt="Gambar Produk"
-                                         style="width: 185px; height: 185px; object-fit: cover">
-                                </a>
+                    @if($data->jenis == 'transfer')
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="font-weight-bold">Detail Pembayaran</p>
+                                <div>
+                                    <p class="font-weight-bold mb-1">Bukti Pembayaran</p>
+                                    <a target="_blank"
+                                       href="{{ asset('assets/bukti')."/".$data->bukti }}">
+                                        <img src="{{  asset('assets/bukti')."/".$data->bukti }}" alt="Gambar Produk"
+                                             style="width: 185px; height: 185px; object-fit: cover">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
             <p class="font-weight-bold">Detail Keranjang Pesanan</p>
@@ -144,8 +156,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group w-100 d-none" id="reason">
-                                    <label for="deskripsi">Alasan</label>
-                                    <textarea class="form-control" rows="3" name="deskripsi" id="deskripsi"></textarea>
+                                    <label for="keterangan">Alasan</label>
+                                    <textarea class="form-control" rows="3" name="keterangan" id="keterangan"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-order w-100" id="btn-submit">Submit
                                 </button>

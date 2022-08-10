@@ -9,10 +9,10 @@
     <div class="container-fluid mt-2" style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
         <ol class="breadcrumb breadcrumb-transparent mb-2">
             <li class="breadcrumb-item">
-                <a href="/beranda" class="category-menu">Beranda</a>
+                <a href="/" class="category-menu">Beranda</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/beranda/transaksi" class="category-menu">Transaksi</a>
+                <a href="/transaksi" class="category-menu">Transaksi</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">{{ $data->no_transaksi }}
             </li>
@@ -54,14 +54,26 @@
                                     <span class="detail-info">{{ $data->status }}</span>
                                 </div>
                             </div>
-                            @if($data->keterangan != '')
+
+                            @if($data->alamat != '')
                                 <div class="d-flex">
                                     <div class="w-50">
                                         <span class="detail-info">Lokasi Pengiriman</span>
                                     </div>
                                     <div class="w-50">
                                         <span class="detail-info">:</span>
-                                        <span class="detail-info">{{ $data->keterangan }}</span>
+                                        <span class="detail-info">{{ $data->alamat }}</span>
+                                    </div>
+                                </div>
+                            @endif
+                            @if($data->status == 'tolak')
+                                <div class="d-flex">
+                                    <div class="w-50">
+                                        <span class="detail-info">Alasan</span>
+                                    </div>
+                                    <div class="w-50">
+                                        <span class="detail-info">:</span>
+                                        <span class="detail-info">{{ $data->waiting_payment->keterangan }}</span>
                                     </div>
                                 </div>
                             @endif
@@ -109,11 +121,12 @@
                     <div class="d-flex justify-content-between align-items-center mb-0">
                         <span class="w-50 font-weight-bold">Sub Total</span>
                         <span class="w-50 text-right font-weight-bold" id="lbl-sub-total"
-                              >Rp.  {{ number_format($data->sub_total, 0, ',', '.')  }}</span>
+                        >Rp.  {{ number_format($data->sub_total, 0, ',', '.')  }}</span>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="w-50 font-weight-bold">Biaya Kirim</span>
-                        <span class="w-50 text-right font-weight-bold" id="lbl-ongkir">Rp. {{ number_format($data->ongkir, 0, ',', '.') }}</span>
+                        <span class="w-50 text-right font-weight-bold"
+                              id="lbl-ongkir">Rp. {{ number_format($data->ongkir, 0, ',', '.') }}</span>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between align-items-center">

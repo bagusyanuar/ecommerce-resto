@@ -45,6 +45,7 @@
                     <th>Atas Nama</th>
                     <th>No. Transaksi</th>
                     <th>Customer</th>
+                    <th>Jenis</th>
                     <th>Total</th>
                 </tr>
                 </thead>
@@ -76,6 +77,7 @@
                 {data: 'nama'},
                 {data: 'transaction.no_transaksi'},
                 {data: 'transaction.user.member.nama'},
+                {data: 'jenis'},
                 {data: 'total'},
             ], [], function (d) {
                 d.tgl1 = $('#tgl1').val();

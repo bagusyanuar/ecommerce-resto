@@ -26,7 +26,7 @@ class LaporanController extends CustomController
         try {
             $tgl1 = $this->field('tgl1');
             $tgl2 = $this->field('tgl2');
-            $data = Transaction::with(['user.member'])
+            $data = Transaction::with(['user.member', 'waiting_payment'])
                 ->whereBetween('tanggal', [$tgl1, $tgl2])
                 ->where('status', '!=', 'menunggu')
                 ->where('status', '!=', 'tolak')
@@ -41,7 +41,7 @@ class LaporanController extends CustomController
     {
         $tgl1 = $this->field('tgl1');
         $tgl2 = $this->field('tgl2');
-        $data = Transaction::with(['user.member'])
+        $data = Transaction::with(['user.member', 'waiting_payment'])
             ->whereBetween('tanggal', [$tgl1, $tgl2])
             ->where('status', '!=', 'menunggu')
             ->where('status', '!=', 'tolak')
@@ -68,6 +68,7 @@ class LaporanController extends CustomController
                     return $q->whereBetween('tanggal', [$tgl1, $tgl2]);
                 })
                 ->where('status', '=', 'terima')
+                ->where('total', '>', 0)
                 ->get();
             return $this->basicDataTables($data);
         } catch (\Exception $e) {
@@ -84,6 +85,7 @@ class LaporanController extends CustomController
                 return $q->whereBetween('tanggal', [$tgl1, $tgl2]);
             })
             ->where('status', '=', 'terima')
+            ->where('total', '>', 0)
             ->get();
         return $this->convertToPdf('admin.laporan.pembayaran.cetak', [
             'tgl1' => $tgl1,

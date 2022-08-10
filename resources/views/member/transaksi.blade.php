@@ -25,6 +25,7 @@
                     <th scope="col">Sub Total (Rp.)</th>
                     <th scope="col">Ongkir (Rp.)</th>
                     <th scope="col">Total (Rp.)</th>
+                    <th scope="col">Jenis</th>
                     <th scope="col">Status</th>
                     <th scope="col">action</th>
                 </tr>
@@ -40,6 +41,14 @@
                         <td>{{ number_format($v->sub_total, 0, ',', '.') }}</td>
                         <td>{{ number_format($v->ongkir, 0, ',', '.') }}</td>
                         <td>{{ number_format($v->total, 0, ',', '.') }}</td>
+                        <td>
+                            @if($v->waiting_payment != null)
+                                {{ $v->waiting_payment->jenis }}
+                            @else
+                                -
+                            @endif
+                        </td>
+
                         <td>
                             @if($v->status == 'kirim')
                                 Di Kirim

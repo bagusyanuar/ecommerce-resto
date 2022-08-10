@@ -11,12 +11,12 @@
     @endif
     <div class="container-fluid pt-3">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Barang</p>
+            <p class="font-weight-bold mb-0" style="font-size: 20px">Halaman Menu Makanan & Minuman</p>
             <ol class="breadcrumb breadcrumb-transparent mb-0">
                 <li class="breadcrumb-item">
                     <a href="/dashboard">Dashboard</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Barang
+                <li class="breadcrumb-item active" aria-current="page">Menu Makanan & Minuman
                 </li>
             </ol>
         </div>
@@ -31,7 +31,7 @@
                     <th width="5%" class="text-center">#</th>
                     <th>Nama</th>
                     <th>Kategori</th>
-                    <th width="12%">Qty</th>
+                    <th width="12%">Porsi</th>
                     <th width="12%">Harga (Rp.)</th>
                     <th>Deskripsi</th>
                     <th>Gambar</th>

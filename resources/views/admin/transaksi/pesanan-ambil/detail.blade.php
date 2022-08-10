@@ -61,6 +61,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-6">
+                                    <span class="font-weight-bold">Jenis Pembayaran</span>
+                                </div>
+                                <div class="col-lg-8 col-md-6">
+                                    <span class="font-weight-bold">: {{ $data->waiting_payment->jenis }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
                                     <span class="font-weight-bold">Lokasi Alamat</span>
                                 </div>
                                 <div class="col-lg-8 col-md-6">

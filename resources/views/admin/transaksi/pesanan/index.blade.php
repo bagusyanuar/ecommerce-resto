@@ -28,6 +28,7 @@
                     <th width="15%">Tanggal</th>
                     <th width="15%">No. Transaksi</th>
                     <th>Customer</th>
+                    <th width="15%">Jenis</th>
                     <th width="12%" class="text-center">Action</th>
                 </tr>
                 </thead>
@@ -38,6 +39,7 @@
                         <td>{{ $v->transaction->tanggal }}</td>
                         <td>{{ $v->transaction->no_transaksi }}</td>
                         <td>{{ $v->transaction->user->member->nama }}</td>
+                        <td>{{ ucwords($v->jenis) }}</td>
                         <td class="text-center">
                             <a href="/pesanan/{{ $v->id }}/detail" class="btn btn-sm btn-info btn-edit"
                                data-id="{{ $v->id }}"><i class="fa fa-info"></i></a>

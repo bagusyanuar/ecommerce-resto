@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Helper\CustomController;
+use App\Models\Payment;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 
 class PesananController extends CustomController
 {
@@ -53,12 +55,28 @@ class PesananController extends CustomController
         $data = Transaction::with(['user.member', 'cart.product'])
             ->findOrFail($id);
         if ($this->request->method() === 'POST') {
+            DB::beginTransaction();
             try {
                 $data->update([
                     'status' => 'selesai'
                 ]);
+                $jenis = $data->waiting_payment->jenis;
+                if ($jenis === 'cod') {
+                    $data_request = [
+                        'transaction_id' => $data->id,
+                        'bank' => 'CASH',
+                        'no_rekening' => '-',
+                        'nama' => '-',
+                        'total' => $data->total,
+                        'status' => 'terima',
+                        'jenis' => $jenis
+                    ];
+                    Payment::create($data_request);
+                }
+                DB::commit();
                 return redirect('/pesanan-selesai-menunggu');
             } catch (\Exception $e) {
+                DB::rollBack();
                 return redirect()->back()->with(['failed' => 'Terjadi Kesalahan ' . $e->getMessage()]);
             }
         }

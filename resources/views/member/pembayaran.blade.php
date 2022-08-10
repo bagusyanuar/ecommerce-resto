@@ -46,37 +46,49 @@
                                           style="font-size: 18px">Rp.  {{ number_format($data->total, 0, ',', '.')  }}</span>
                                 </div>
                             </div>
+
+
                             @if($data->waiting_payment == null)
                                 <hr>
                                 <form method="post" enctype="multipart/form-data"
                                       action="/pembayaran/{{ $data->id }}/create">
                                     @csrf
                                     <div class="form-group w-100 mt-2">
-                                        <label for="bank">Pembayaran Bank</label>
-                                        <select class="form-control" id="bank" name="bank" required>
-                                            <option value="">--pilih bank--</option>
-                                            <option value="BCA">BRI</option>
-                                            <option value="BCA">BCA</option>
-                                            <option value="MANDIRI">MANDIRI</option>
+                                        <label for="jenis">Jenis Pembayran</label>
+                                        <select class="form-control" id="jenis" name="jenis" required>
+                                            <option value="transfer">Transfer</option>
+                                            <option value="cod">Bayar Di Tempat</option>
                                         </select>
                                     </div>
-                                    <div class="w-100 mb-1">
-                                        <label for="no_rekening" class="form-label">No. Rekening</label>
-                                        <input type="number" class="form-control" id="no_rekening"
-                                               name="no_rekening" required>
-                                    </div>
-                                    <div class="w-100 mb-1">
-                                        <label for="nama" class="form-label">Atas Nama</label>
-                                        <input type="text" class="form-control" id="nama"
-                                               name="nama" required>
-                                    </div>
-                                    <div class="w-100 mb-1">
-                                        <label for="bukti" class="form-label">Gambar Bukti Transfer</label>
-                                        <input type="file" class="form-control-file" id="c"
-                                               placeholder="Gambar Bukti"
-                                               name="bukti" required>
-                                    </div>
                                     <hr>
+                                    <div id="transfer-panel" class="d-block">
+                                        <div class="form-group w-100 mt-2">
+                                            <label for="bank">Pembayaran Bank</label>
+                                            <select class="form-control" id="bank" name="bank">
+                                                <option value="">--pilih bank--</option>
+                                                <option value="BCA">BRI</option>
+                                                <option value="BCA">BCA</option>
+                                                <option value="MANDIRI">MANDIRI</option>
+                                            </select>
+                                        </div>
+                                        <div class="w-100 mb-1">
+                                            <label for="no_rekening" class="form-label">No. Rekening</label>
+                                            <input type="number" class="form-control" id="no_rekening"
+                                                   name="no_rekening">
+                                        </div>
+                                        <div class="w-100 mb-1">
+                                            <label for="nama" class="form-label">Atas Nama</label>
+                                            <input type="text" class="form-control" id="nama"
+                                                   name="nama">
+                                        </div>
+                                        <div class="w-100 mb-1">
+                                            <label for="bukti" class="form-label">Gambar Bukti Transfer</label>
+                                            <input type="file" class="form-control-file" id="c"
+                                                   placeholder="Gambar Bukti"
+                                                   name="bukti">
+                                        </div>
+                                        <hr>
+                                    </div>
                                     <button type="submit" class="btn btn-order w-100" id="btn-checkout">Bayar
                                     </button>
                                 </form>
@@ -120,6 +132,16 @@
     <script>
         $(document).ready(function () {
             $('#table-data').DataTable();
+            $('#jenis').on('change', function () {
+                let value = this.value;
+                if(value === 'cod') {
+                    $('#transfer-panel').removeClass('d-block');
+                    $('#transfer-panel').addClass('d-none');
+                } else {
+                    $('#transfer-panel').addClass('d-block');
+                    $('#transfer-panel').removeClass('d-none');
+                }
+            });
         });
     </script>
 @endsection

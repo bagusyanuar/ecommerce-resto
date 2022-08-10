@@ -34,6 +34,7 @@
         <th>Tanggal</th>
         <th>No. Transaksi</th>
         <th>Customer</th>
+        <th>Jenis</th>
         <th>Alamat Pengiriman</th>
         <th>Sub Total</th>
         <th>Ongkir</th>
@@ -47,6 +48,7 @@
             <td>{{ $v->tanggal }}</td>
             <td>{{ $v->no_transaksi }}</td>
             <td>{{ $v->user->member->nama }}</td>
+            <td>{{ $v->waiting_payment->jenis }}</td>
             <td>{{ $v->alamat }}</td>
             <td>{{ number_format($v->sub_total, 0, ',', '.') }}</td>
             <td>{{ number_format($v->ongkir, 0, ',', '.') }}</td>

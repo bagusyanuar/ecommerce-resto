@@ -47,7 +47,7 @@ class AuthController extends CustomController
                 if ($role === 'admin') {
                     return redirect('/dashboard');
                 } else {
-                    return redirect('/beranda');
+                    return redirect('/');
                 }
             }
             return redirect()->back()->with('failed', 'Periksa Kembali Username dan Password Anda');

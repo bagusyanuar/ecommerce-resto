@@ -27,7 +27,7 @@
                     <div class="font-weight-bold main-text-color" style="font-size: 24px; letter-spacing: 1.5px;">{{ $data->nama }}</div>
                     <div style="font-size: 14px; color: #777777; letter-spacing: 2px;">{{ $data->category->nama }}</div>
                     <div class="font-weight-bold main-text-color" id="lbl-harga" data-harga="{{ $data->harga }}" style="font-size: 24px">
-                        Rp. {{ number_format($data->harga, 0, ',', '.') }}</div>
+                        Rp. {{ number_format($data->harga, 0, ',', '.') }} <span style="font-size: 12px; color: #777777">/porsi</span></div>
                     <div style="text-align: justify; letter-spacing: 2px;">{{ $data->deskripsi }}</div>
                 </div>
             </div>

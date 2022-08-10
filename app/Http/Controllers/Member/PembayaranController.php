@@ -29,14 +29,16 @@ class PembayaranController extends CustomController
         try {
             DB::beginTransaction();
             $transaction = Transaction::find($id);
+            $jenis = $this->postField('jenis');
             $data = [
                 'transaction_id' => $transaction->id,
-                'bank' => $this->postField('bank'),
-                'no_rekening' => $this->postField('no_rekening'),
-                'nama' => $this->postField('nama'),
-                'total' => $transaction->total,
+                'bank' => $jenis === 'cod' ? 'CASH' : $this->postField('bank'),
+                'no_rekening' => $jenis === 'cod' ? '-' : $this->postField('no_rekening'),
+                'nama' => $jenis === 'cod' ? '-' : $this->postField('nama'),
+                'total' => $jenis === 'cod' ? 0 : $transaction->total,
                 'status' => 'menunggu',
                 'keterangan' => '',
+                'jenis' => $jenis
             ];
             $nama_gambar = $this->generateImageName('bukti');
 
