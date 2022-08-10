@@ -66,7 +66,7 @@
                                             <p class="elipsis-two mb-0"
                                                style="color: #535961; font-size: 12px; height: 35px">{{ $v->deskripsi }}</p>
                                             <p class="font-weight-bold main-text-color mb-1" style="font-size: 20px;">
-                                                Rp. {{ number_format($v->harga, 0, ',', '.') }}</p>
+                                                Rp. {{ number_format($v->harga, 0, ',', '.') }}<span style="font-size: 12px; font-weight: normal; color: #777">/ porsi</span></p>
                                             <div class="d-flex w-100 justify-content-between align-items-center">
                                                 <p class="text-green mb-0" style="color: #535961; font-size: 12px;">
                                                     Stock
@@ -107,7 +107,7 @@
                 '<p class="card-title font-weight-bold elipsis-one main-text-color mb-0">' + data['nama'] + '</p>' +
                 '<p class="elipsis-two mb-0" style="color: #535961; font-size: 12px; height: 35px">' + data['deskripsi'] + '</p>' +
                 '<p class="font-weight-bold main-text-color mb-1" style="font-size: 20px;">\n' +
-                'Rp. ' + formatUang(data['harga']) + '</p>\n' +
+                'Rp. ' + formatUang(data['harga']) + ' <span style="font-size: 12px; font-weight: normal; color: #777">/ porsi</span></p>\n' +
                 '<div class="d-flex w-100 justify-content-between align-items-center">\n' +
                 '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock : ' + data['qty'] + '</p>\n' +
                 '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">\n' +
