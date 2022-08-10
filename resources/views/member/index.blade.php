@@ -71,6 +71,9 @@
                                                 <p class="text-green mb-0" style="color: #535961; font-size: 12px;">
                                                     Stock
                                                     : {{ $v->qty }}</p>
+                                                <p class="text-green mb-0" style="color: #535961; font-size: 12px;">
+                                                    Terjual
+                                                    : {{ $v->sell }}</p>
                                             </div>
 
                                         </div>
@@ -107,6 +110,9 @@
                 'Rp. ' + formatUang(data['harga']) + '</p>\n' +
                 '<div class="d-flex w-100 justify-content-between align-items-center">\n' +
                 '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">Stock : ' + data['qty'] + '</p>\n' +
+                '<p class="text-green mb-0" style="color: #535961; font-size: 12px;">\n' +
+                '                                                    Terjual\n' +
+                '                                                    : ' + data['sell'] + '</p>' +
                 '</div>\n' +
                 '</div>\n' +
                 '</div>\n' +

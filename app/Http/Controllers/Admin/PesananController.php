@@ -31,7 +31,8 @@ class PesananController extends CustomController
         if ($this->request->method() === 'POST') {
             try {
                 $data->update([
-                    'status' => 'kirim'
+                    'status' => 'kirim',
+                    'waktu' => $this->postField('waktu')
                 ]);
                 return redirect('/pesanan-proses');
             } catch (\Exception $e) {

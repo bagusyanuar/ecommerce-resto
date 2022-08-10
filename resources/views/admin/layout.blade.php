@@ -36,7 +36,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-1">
     <div class="sidebar">
         <a href="/dashboard" class="brand-link">
-            <img src="{{ asset('assets/icon/logo.png') }}"
+            <img src="{{ asset('assets/icon/logo-login.png') }}"
                  alt="AdminLTE Logo"
                  class="brand-image"
             >
@@ -106,6 +106,13 @@
                                        class="nav-link">
                                         <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
                                         <p>Menu</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/product-stock"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Stock Menu</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -193,6 +200,13 @@
                                        class="nav-link">
                                         <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
                                         <p>Stock</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/laporan-tambah-stock"
+                                       class="nav-link">
+                                        <i class="fa fa-circle-o nav-icon" aria-hidden="true"></i>
+                                        <p>Tambah Stock</p>
                                     </a>
                                 </li>
                             </ul>

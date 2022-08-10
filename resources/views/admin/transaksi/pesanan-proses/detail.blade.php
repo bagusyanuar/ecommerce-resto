@@ -109,40 +109,47 @@
 
                         </div>
                         <div class="col-md-6 col-lg-4">
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6">
-                                    <span class="font-weight-bold">Total</span>
+                            <form method="post">
+                                @csrf
+                                <div class="w-100 mb-1">
+                                    <label for="waktu" class="form-label">Waktu Pengiriman (menit)</label>
+                                    <input type="number" class="form-control" id="waktu" placeholder="Porsi Menu"
+                                           name="waktu" value="0">
                                 </div>
-                                <div class="col-md-6 col-lg-6">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <span class="font-weight-bold">Total</span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
                                     <span class="font-weight-bold">
                                         : Rp. {{ number_format($data->sub_total, 0, ',', '.') }}
                                     </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6">
-                                    <span class="font-weight-bold">Ongkir</span>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <span class="font-weight-bold">Ongkir</span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
                                     <span class="font-weight-bold">
                                         : Rp. {{ number_format($data->ongkir, 0, ',', '.') }}
                                     </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6">
-                                    <span class="font-weight-bold">Total</span>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <span class="font-weight-bold">Total</span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
                                     <span class="font-weight-bold">
                                         : Rp. {{ number_format($data->total, 0, ',', '.') }}
                                     </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <form method="post">
-                                @csrf
+                                <hr>
+
                                 <button type="submit" class="btn btn-order w-100" id="btn-submit">Kirim Pesanan
                                 </button>
                             </form>

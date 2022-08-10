@@ -18,6 +18,7 @@ class Transaction extends Model
         'total',
         'status',
         'alamat',
+        'waktu',
     ];
 
     public function user()

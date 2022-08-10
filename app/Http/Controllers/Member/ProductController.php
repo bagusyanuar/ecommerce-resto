@@ -22,7 +22,7 @@ class ProductController extends CustomController
             $data = Barang::with('category')
                 ->where('category_id', '=', $category)
                 ->where('nama', 'LIKE', '%' . $name . '%')
-                ->get();
+                ->get()->append('sell');
             return $this->jsonResponse('success', 200, $data);
         } catch (\Exception $e) {
             return $this->jsonResponse('failed ' . $e->getMessage(), 500);

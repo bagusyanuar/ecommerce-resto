@@ -60,6 +60,13 @@ Route::group(['prefix' => 'product'], function () {
     Route::post('/delete', [\App\Http\Controllers\Admin\BarangController::class, 'destroy']);
 });
 
+Route::group(['prefix' => 'product-stock'], function () {
+    Route::get('/', [\App\Http\Controllers\Admin\StockController::class, 'index']);
+    Route::get('/tambah', [\App\Http\Controllers\Admin\StockController::class, 'add_page']);
+    Route::post('/create', [\App\Http\Controllers\Admin\StockController::class, 'create']);
+    Route::post('/delete', [\App\Http\Controllers\Admin\StockController::class, 'destroy']);
+});
+
 Route::group(['prefix' => 'wilayah'], function () {
     Route::get('/', [\App\Http\Controllers\Admin\KotaController::class, 'index']);
     Route::get('/tambah', [\App\Http\Controllers\Admin\KotaController::class, 'add_page']);
@@ -115,6 +122,12 @@ Route::group(['prefix' => 'laporan-stock'], function () {
     Route::get('/', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_stock']);
     Route::get('/data', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_stock_data']);
     Route::get('/cetak', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_stock_cetak']);
+});
+
+Route::group(['prefix' => 'laporan-tambah-stock'], function () {
+    Route::get('/', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_tambah_stock']);
+    Route::get('/data', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_tambah_stock_data']);
+    Route::get('/cetak', [\App\Http\Controllers\Admin\LaporanController::class, 'laporan_tambah_stock_cetak']);
 });
 
 

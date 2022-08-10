@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helper\CustomController;
 use App\Models\Barang;
 use App\Models\Payment;
+use App\Models\ProductStock;
 use App\Models\Transaction;
 
 class LaporanController extends CustomController
@@ -115,6 +116,39 @@ class LaporanController extends CustomController
         $data = Barang::with(['category'])
             ->get();
         return $this->convertToPdf('admin.laporan.stock.cetak', [
+            'data' => $data
+        ]);
+    }
+
+    public function laporan_tambah_stock()
+    {
+        return view('admin.laporan.tambah-stock.index');
+    }
+
+    public function laporan_tambah_stock_data()
+    {
+        try {
+            $tgl1 = $this->field('tgl1');
+            $tgl2 = $this->field('tgl2');
+            $data = ProductStock::with(['product'])
+                ->whereBetween('tanggal', [$tgl1, $tgl2])
+                ->get();
+            return $this->basicDataTables($data);
+        }catch (\Exception $e) {
+            return $this->basicDataTables([]);
+        }
+    }
+
+    public function laporan_tambah_stock_cetak()
+    {
+        $tgl1 = $this->field('tgl1');
+        $tgl2 = $this->field('tgl2');
+        $data = ProductStock::with(['product'])
+            ->whereBetween('tanggal', [$tgl1, $tgl2])
+            ->get();
+        return $this->convertToPdf('admin.laporan.tambah-stock.cetak', [
+            'tgl1' => $tgl1,
+            'tgl2' => $tgl2,
             'data' => $data
         ]);
     }

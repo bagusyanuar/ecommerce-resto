@@ -77,6 +77,17 @@
                                     </div>
                                 </div>
                             @endif
+                            @if($data->status == 'kirim')
+                                <div class="d-flex">
+                                    <div class="w-50">
+                                        <span class="detail-info">Estimasi Pengiriman</span>
+                                    </div>
+                                    <div class="w-50">
+                                        <span class="detail-info">:</span>
+                                        <span class="detail-info">{{ $data->waktu }} menit</span>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
