@@ -39,7 +39,8 @@ class PaymentController extends CustomController
                 $data->update($data_payment);
                 $transaction = Transaction::with('cart.product')->find($data->transaction_id);
                 $transaction->update([
-                    'status' => $status === 'terima' ? 'packing' : 'tolak'
+                    'status' => $status === 'terima' ? 'packing' : 'tolak',
+                    'admin' => auth()->user()->username
                 ]);
                 if($status === 'terima') {
                     $cart = $transaction->cart;

@@ -38,10 +38,16 @@
     </style>
 </head>
 <body>
-<div class="text-center f-bold report-title">NOTA PEMBELIAN RUMAH MAKAN APUNG WANAWISATA</div>
-<div class="text-center">
-    <span>Jl. Adi Sumarmo No. 18, Manahan, Surakarta</span>
+<div style="position: relative">
+    <img src={{ public_path('assets/icon/logo-login.png') }} height="50" style="position: absolute; top: 0; left: 0">
+    <div>
+        <div class="text-center f-bold report-title">NOTA PEMBELIAN RUMAH MAKAN APUNG WANAWISATA</div>
+        <div class="text-center">
+            <span>Desa Wonoharjo, kecamatan kemusu, kabupaten Boyolali</span>
+        </div>
+    </div>
 </div>
+
 <hr>
 <div class="row">
     <div class="col-xs-2 f-bold">No. Transaksi</div>
@@ -52,6 +58,14 @@
 <div class="row">
     <div class="col-xs-2">Nama</div>
     <div class="col-xs-3">: {{ $data->user->member->nama }}</div>
+    <div class="col-xs-2">Jenis Pemesanan</div>
+    <div class="col-xs-3">: {{ $data->waiting_payment->jenis}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-3"></div>
+    <div class="col-xs-2">Admin</div>
+    <div class="col-xs-3">: {{ $data->admin}}</div>
 </div>
 <hr>
 <table id="my-table" class="table display">

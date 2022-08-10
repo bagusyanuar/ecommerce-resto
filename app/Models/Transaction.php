@@ -19,6 +19,7 @@ class Transaction extends Model
         'status',
         'alamat',
         'waktu',
+        'admin',
     ];
 
     public function user()
